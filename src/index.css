@@ -3,7 +3,9 @@
   --gris: #e3e3e3;
 }
 
-html, body {
+html,
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -17,12 +19,24 @@ html, body {
   justify-content: space-between;
   align-items: center;
   background: var(--gris);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .nav-logo {
-  width: 40px;
-  margin-left: 10px;
-  padding: 5px;
+  width: 50px;
+  margin-left: 15px;
+  position: relative;
+  top: 3px;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .nav-icon {
@@ -40,7 +54,7 @@ html, body {
   padding: 0;
 }
 
-.nav-items > li {
+.nav-items>li {
   position: relative;
   bottom: 5px;
   padding-left: 20px;
@@ -48,7 +62,7 @@ html, body {
   transition: 0.2s;
 }
 
-.nav-items > li > a {
+.nav-items>li>a {
   text-decoration: none;
   font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -57,7 +71,7 @@ html, body {
   overflow: visible;
 }
 
-.nav-items > li > a:hover {
+.nav-items>li>a:hover {
   color: var(--celeste);
   fill: var(--celeste);
 }
@@ -70,6 +84,18 @@ html, body {
   font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   transition: 0.2s;
+  animation-name: blink;
+  animation-duration: 2.5s;
+}
+
+@keyframes blink {
+  0% {color: black; fill: black;}
+  15% {color: var(--celeste); fill: var(--celeste);}
+  30% {color: black; fill: black;}
+  45% {color: var(--celeste); fill: var(--celeste);}
+  60% {color: black; fill: black;}
+  75% {color: var(--celeste); fill: var(--celeste);}
+  100% {color: black; fill: black;}
 }
 
 .openModalBtn:hover {
@@ -80,49 +106,58 @@ html, body {
 
 /* ----- index.html ----- */
 
-/* WELCOME */
+/* TUTORIAL */
 .welcome-box {
+  width: clamp(35%, 700px, 90%);
+  height: fit-content;
+  opacity: 1;
   position: relative;
   background-color: white;
-  /*font-family:Arial, Helvetica, sans-serif;*/
-  /*font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
-  /*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 5%;
   margin-bottom: 50px;
-  padding: 3%;
-  width: 40%;
+  padding: 2%;
+  color: #1b3a41;
   text-align: center;
   border: 3px;
-  border-radius: 5px;
+  border-radius: 30px;
   border-style: solid;
   border-color: black;
-  z-index: 1;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.welcome-box > h3 {
+.welcome-box>div>h3 {
   font-size: 40px;
   padding-top: 0;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-top: 0;
+  padding-bottom: 10px;
   margin-bottom: 0;
   line-height: 100%;
 }
 
-.welcome-box > p {
+.welcome-box>div>p {
   font-size: 24px;
   margin: 0;
-  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   line-height: 125%;
 }
 
-.welcome-box > img {
+.welcome-box>div>img {
   width: 30%;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .buttonBar {
@@ -134,12 +169,15 @@ html, body {
   column-gap: 10px;
 }
 
-.modalBtn {
-  padding-top: 5px;
-  padding-bottom: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
-  text-align: center;
+#hide {
+  opacity: 0;
+  cursor: default;
+}
+
+.tutorialBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 20px;
   width: fit-content;
   height: 35px;
   font-size: 20px;
@@ -148,24 +186,26 @@ html, body {
   border: none;
   color: black;
   border: solid 1px black;
-  border-radius: 3px;
+  border-radius: 45px;
   transition: 200ms;
 }
 
-.modalBtn:hover {
+.tutorialBtn:hover {
   background-color: var(--celeste);
   color: white;
   cursor: pointer;
 }
 
 /* DARK BACKGROUND */
-.darkbg {
-  background-color: black;
-  opacity: 0.5;
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.288);
   position: absolute;
   top: 0;
   right: 0;
-  width: 10000;
-  height: 10000;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
