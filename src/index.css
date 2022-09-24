@@ -5,9 +5,15 @@
 
 html,
 body {
+  height: 100%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+#root {
+  overflow: hidden;
+  height: 100%;
 }
 
 /* NAVBAR */
@@ -108,8 +114,8 @@ body {
 
 /* TUTORIAL */
 .welcome-box {
-  width: clamp(35%, 700px, 90%);
-  height: fit-content;
+  width: clamp(30%, 700px, 90%);
+  height: 650px;
   opacity: 1;
   position: relative;
   background-color: white;

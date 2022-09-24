@@ -8,14 +8,11 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-mo
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
-
-  const close = () => setOpenModal(false);
-  const open = () => setOpenModal(true);
+  const tutorialPage = [1, 2, 3, 4, 5];
 
   return (
     <div>
       <Header changeModalState={setOpenModal} />
-      {openModal && <Backdrop changeModalState={setOpenModal} />}
       <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
         {openModal && <Modal changeModalState={setOpenModal} handleClose={true} />}
       </AnimatePresence>
