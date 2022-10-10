@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
 import Tutorial from "./Tutorial";
+import Logo from "../images/icons/pathfinding-thick.png"
 
 const dropIn = {
     hidden: {
@@ -25,7 +26,7 @@ const dropIn = {
 
 const Modal = ({ changeModalState }) => {
     return (
-        <div>
+        <div class="modal">
             <Backdrop onClick={changeModalState}></Backdrop>
             <motion.div onClick={(e) => e.stopPropagation()} variants={dropIn} initial="hidden" animate="visible" exit="exit">
                 <Tutorial changeModalState={changeModalState}></Tutorial>

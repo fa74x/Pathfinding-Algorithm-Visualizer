@@ -1,0 +1,121 @@
+:root {
+    --celeste: #4fc3d9;
+    --gris: #e3e3e3;
+}
+
+.node {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.node-start {
+    background-image: url("/src/images/icons/right-arrow.png");
+    background-size: contain;
+}
+
+.node-end {
+    background-image: url("/src/images/icons/flag.png");
+    background-size: contain;
+}
+
+
+.node-visited {
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.5);
+        background-color: #7D387D;
+        border-radius: 10%;
+    }
+
+    50% {
+        background-color: #fdbd57;
+    }
+
+    75% {
+        transform: scale(1.1);
+        background-color: #fdbd57;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #fdbd57;
+    }
+}
+
+.node-wall {
+    background-color: rgb(12, 53, 71);
+    animation-name: wallAnimation;
+    animation-duration: 0.35s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+/*@keyframes wallAnimation {
+    0% {
+        transform: scale(0.8);
+        border-radius: 10%;
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}*/
+
+.node-shortest-path {
+    animation-name: shortestPath;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes shortestPath {
+    0% {
+        transform: scale(0.6);
+        background-color: var(--celeste);
+    }
+
+    70% {
+        transform: scale(1.2);
+        background-color: var(--celeste);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: var(--celeste);
+    }
+}
+
+.node-guide-visited {
+    background-color: #fdbd57;
+}
+
+.node-guide-path {
+    background-color: var(--celeste);
+}
+
+.node-guide-wall {
+    background-color: rgb(12, 53, 71);
+}
