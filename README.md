@@ -1,6 +1,7 @@
 # Pathfinding Visualizer
 
 Welcome to my Pathfinding Visualizer!
+## https://fa74x.github.io/Pathfinding-Visualizer/
 
 Pathfinding algorithms are a method of finding a route between two points, usually in a digital space. They have a wide range of applications, from video games to navigation systems. I find them fascinating because of the way they can find the most efficient route between two points, and I wanted to create a tool that would allow people to see these algorithms in action.
 
