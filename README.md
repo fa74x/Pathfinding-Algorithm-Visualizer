@@ -1,8 +1,8 @@
 # Pathfinding Visualizer
 
-Welcome to my Pathfinding Visualizer!
-## https://fa74x.github.io/Pathfinding-Visualizer/
+https://fa74x.github.io/Pathfinding-Visualizer/
 
+## Welcome to my Pathfinding Visualizer!
 Pathfinding algorithms are a method of finding a route between two points, usually in a digital space. They have a wide range of applications, from video games to navigation systems. I find them fascinating because of the way they can find the most efficient route between two points, and I wanted to create a tool that would allow people to see these algorithms in action.
 
 This application includes four different pathfinding algorithms: A*, Dijkstra's, Breadth-First Search, and Depth-First Search. Each algorithm has its own strengths and weaknesses, so you can experiment with each one to see which works best for your particular needs. I hope you enjoy playing around with this tool and that it helps you to better understand pathfinding algorithms.
