@@ -9,10 +9,10 @@ export default function Header({ changeModalState }) {
     return (
         <header>
             <nav className="navbar">
-                <a href="/public/index.html" draggable="false"><img className="nav-logo" /*src={Logo}*/ /></a>
+                <a href="https://fa74x.github.io/Pathfinding-Visualizer/" draggable="false"><img className="nav-logo" /*src={Logo}*/ /></a>
                 <ul className="nav-items">
                     <li>
-                        <a href="/public/index.html" draggable="false">
+                        <a href="https://fa74x.github.io/Pathfinding-Visualizer/" draggable="false">
                             {Home_svg}
                             Home
                         </a>
@@ -32,14 +32,14 @@ export default function Header({ changeModalState }) {
                 </ul>
                 <ul className="nav-items-mobile">
                     <li>
-                        <a href="/public/index.html" draggable="false">
-                            {Home_svg}
-                        </a>
-                    </li>
-                    <li>
                         <button className="openModalBtn" onClick={() => changeModalState(current => !current)}>
                             {Tutorial_svg}
                         </button>
+                    </li>
+                    <li>
+                        <a href="https://fa74x.github.io/Pathfinding-Visualizer/" draggable="false">
+                            {Home_svg}
+                        </a>
                     </li>
                     <li>
                         <a href="https://github.com/FA74x" target="_blank" draggable="false">

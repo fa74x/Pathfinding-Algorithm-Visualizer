@@ -121,3 +121,49 @@
   color: white;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 415px) {
+  .welcome-box {
+    position: relative;
+    top: 70px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+  }
+
+  .welcome-box>div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .welcome-box>div>h3 {
+    font-size: 28px;
+  }
+
+  .welcome-box>div>p {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: 20px;
+  }
+
+  .welcome-box>div>img {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 180px;
+  }
+
+  .buttonBar {
+    position: absolute;
+    padding: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 5px;
+  }
+
+  .tutorialBtn {
+    font-size: 15px;
+    height: 28px !important;
+    padding: 13px;
+  }
+}

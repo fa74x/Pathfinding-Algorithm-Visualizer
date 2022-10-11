@@ -144,7 +144,7 @@ header {
 
     .nav-items-mobile {
         display: grid;
-        grid-template-columns: 29% 28% 29%;
+        grid-template-columns: 1fr 1fr 1fr;
         position: relative;
         align-items: center;
         top: -18px;
@@ -180,7 +180,6 @@ header {
 
     .nav-items {
         position: absolute;
-        left: 10%;
         top: -10px;
     }
 }

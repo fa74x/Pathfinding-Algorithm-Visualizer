@@ -99,22 +99,24 @@ const PathfindingVisualizer = () => {
 
     //CHANGE WALL NODE
     function changeWall(i, j) {
-        if (grid[i][j].isWall == false) {
-            grid[i][j].isWall = true;
-        } else {
-            grid[i][j].isWall = false;
+        if (!grid[i][j].isStart && !grid[i][j].isEnd) {
+            if (grid[i][j].isWall == false) {
+                grid[i][j].isWall = true;
+            } else {
+                grid[i][j].isWall = false;
+            }
+
+            setGrid(grid);
+
+            addNeighbours(grid);
+
+            const startNode = grid[NODE_START_ROW][NODE_START_COL];
+            const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
+            let path = Astar(startNode, finishNode);
+            path.path = path.path.reverse();
+            setPath(path.path);
+            setVisitedNodes(path.visitedNodes);
         }
-
-        setGrid(grid);
-
-        addNeighbours(grid);
-
-        const startNode = grid[NODE_START_ROW][NODE_START_COL];
-        const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
-        let path = Astar(startNode, finishNode);
-        path.path = path.path.reverse();
-        setPath(path.path);
-        setVisitedNodes(path.visitedNodes);
     }
 
     //CREATES THE SPOT
