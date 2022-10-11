@@ -4,8 +4,8 @@
 }
 
 .node {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: 1px solid black;
 }
 
@@ -118,4 +118,20 @@
 
 .node-guide-wall {
     background-color: rgb(12, 53, 71);
+}
+
+@media only screen and (max-width: 415px) {
+    .node {
+        width: 13px;
+        height: 13px;
+        border: 1px solid black;
+    }
+
+    .node-start {
+        transform: rotate(90deg);
+    }
+
+    .node-end {
+        transform: rotate(90deg);
+    }
 }

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 import Astar from "../algorithms/astar.jsx"
 import Node from "../PathfindingVisualizer/Node/Node";
 import "./PathfindingVisualizer.css"
-const cols = 24;
-const rows = 15;
+const cols = 29;
+const rows = 19;
 
-const NODE_START_ROW = 0;
-const NODE_START_COL = 0;
-const NODE_FINISH_ROW = rows - 1;
-const NODE_FINISH_COL = cols - 1;
+const NODE_START_ROW = 2;
+const NODE_START_COL = 2;
+const NODE_FINISH_ROW = rows - 3;
+const NODE_FINISH_COL = cols - 3;
 
 const grid = new Array(rows);
 
@@ -129,15 +129,6 @@ const PathfindingVisualizer = () => {
         }
     };
 
-    //ADD NEIGHBOURS
-    const addNeighbours = (grid) => {
-        for (let i = 0; i < rows; i++) {
-            for (let j = 0; j < cols; j++) {
-                grid[i][j].addneighbours(grid);
-            }
-        }
-    }
-
     //SPOT CONSTRUCTOR
     function Spot(i, j) {
         this.x = i;
@@ -160,6 +151,15 @@ const PathfindingVisualizer = () => {
             if (i < rows - 1) this.neighbours.push(grid[i + 1][j])
             if (j > 0) this.neighbours.push(grid[i][j - 1]);
             if (j < cols - 1) this.neighbours.push(grid[i][j + 1])
+        }
+    }
+
+    //ADD NEIGHBOURS
+    const addNeighbours = (grid) => {
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                grid[i][j].addneighbours(grid);
+            }
         }
     }
 
@@ -192,6 +192,24 @@ const PathfindingVisualizer = () => {
             })}
         </div >
     );
+
+    //MAZE 1
+    function Maze1() {
+        for (let i = 1; i < cols; i++) {
+            grid[0][i].isWall = true;
+        }
+
+        setGrid(grid);
+
+        addNeighbours(grid);
+
+        const startNode = grid[NODE_START_ROW][NODE_START_COL];
+        const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
+        let path = Astar(startNode, finishNode);
+        path.path = path.path.reverse();
+        setPath(path.path);
+        setVisitedNodes(path.visitedNodes);
+    }
 
 
     const visualizeShortestPath = (shortestPathNodes) => {
@@ -230,7 +248,7 @@ const PathfindingVisualizer = () => {
                 <h3 style={{ paddingLeft: "25px" }}>Path Node</h3><div className="node node-guide-path" />
                 <h3 style={{ paddingLeft: "25px" }}>Wall Node</h3><div className="node node-guide-wall" />
             </div>
-            {gridWithNode}
+            <div className="grid">{gridWithNode}</div>
             <div className="btn-bar">
                 <button className="btn-visualize orange" onClick={initializeGrid}>⠀Randomize⠀</button>
                 <button className="btn-visualize skyblue" onClick={visualizePath}>⠀Visualize Path⠀</button>
