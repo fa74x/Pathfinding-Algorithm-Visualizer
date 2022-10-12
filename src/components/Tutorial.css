@@ -67,7 +67,7 @@
   font-size: 24px;
   margin: 0;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 25px;
   line-height: 125%;
 }
 
@@ -80,6 +80,10 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+#tutorial-gif {
+  height: 220px;
 }
 
 .buttonBar {
@@ -171,7 +175,7 @@
 
   .tutorial-box>div>p {
     padding-top: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     font-size: 20px;
   }
 
@@ -182,7 +186,7 @@
   }
 
   #tutorial-gif {
-    height: 190px;
+    height: 160px;
   }
 
   .buttonBar {

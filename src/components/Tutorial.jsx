@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Logo from "../images/icons/pathfinding-thick.png"
 import Distance from "../images/icons/distance.png"
-import DFSgif from "../images/gifs/bfs.gif"
+import BFSgif from "../images/gifs/bfs.gif"
+import DFSgif from "../images/gifs/dfs.gif"
 import "./Tutorial.css"
 
 
@@ -54,16 +55,20 @@ export default function Tutorial({ changeModalState }) {
                 break
             case 3:
                 setTitle("Breadth First Search (BFS)");
-                setText("BFS is an algorithm used to find the shortest path from a given source vertex to all other vertices in the graph. It starts with the source vertex and visits all the vertices connected to it, before moving on to the next vertex in the queue. It can also be used to determine whether a graph is connected or not.")
-                setImg(DFSgif)
-                setBtntxt("Finish")
+                setText("BFS is an algorithm used to find the shortest path from a given source node to all other nodes in the graph. It starts with the source node and visits all the nodes connected to it, before moving on to the next node in the queue. It can also be used to determine whether a graph is connected or not.")
+                setImg(BFSgif)
+                setBtntxt("Next")
                 try {
                     document.getElementById('tutorial-img').id = 'tutorial-gif'
-                } catch {
-                    document.getElementById('tutorial-gif').id = 'tutorial-img'
-                }
+                } catch { }
                 break
             case 4:
+                setTitle("Depth First Search (DFS)");
+                setText("DFS is another pathfinding algorithm. It starts at the source node of a graph and explores as far as possible along each branch before backtracking. It uses a stack data structure to keep track of the nodes it has visited, and returns a path from the root node to the goal node.")
+                setImg(DFSgif)
+                setBtntxt("Finish")
+                break
+            case 5:
                 changeModalState(false)
                 break
         }

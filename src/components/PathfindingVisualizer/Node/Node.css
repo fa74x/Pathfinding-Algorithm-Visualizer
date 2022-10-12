@@ -54,7 +54,7 @@
     }
 }
 
-.node-visited-start {
+.node-visited-dot {
     animation-name: visitedAnimationStart;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;

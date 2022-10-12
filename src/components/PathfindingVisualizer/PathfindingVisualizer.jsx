@@ -15,8 +15,8 @@ const rows = 19;
 
 const NODE_START_ROW = 2;
 const NODE_START_COL = 2;
-const NODE_FINISH_ROW = rows - 3;
-const NODE_FINISH_COL = cols - 3;
+const NODE_FINISH_ROW = rows - 2;
+const NODE_FINISH_COL = cols - 2;
 
 const grid = new Array(rows);
 
@@ -141,6 +141,8 @@ const PathfindingVisualizer = () => {
             setGrid(grid);
 
             addNeighbours(grid);
+
+            cleanGrid();
 
             const startNode = grid[NODE_START_ROW][NODE_START_COL];
             const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
@@ -300,15 +302,23 @@ const PathfindingVisualizer = () => {
         for (let i = 0; i <= BFSVisitedNodes.length; i++) {
             if (i == 0) {
                 const node = BFSVisitedNodes[0];
-                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-start";
+                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-dot";
             } else if (i === BFSVisitedNodes.length) {
                 setTimeout(() => {
+                    const node = BFSVisitedNodes[i - 1];
+                    if (node.isEnd) {
+                        document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-dot";
+                    }
+                }, 15 * i);
+                setTimeout(() => {
                     visualizeShortestPath(BFSPath);
-                }, 16 * i);
+                }, 17 * i);
             } else {
                 setTimeout(() => {
                     const node = BFSVisitedNodes[i];
-                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                    if (!node.isEnd) {
+                        document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                    }
                 }, 15 * i)
             }
         }
@@ -320,15 +330,23 @@ const PathfindingVisualizer = () => {
         for (let i = 0; i <= DFSVisitedNodes.length; i++) {
             if (i == 0) {
                 const node = DFSVisitedNodes[0];
-                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-start";
+                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-dot";
             } else if (i === DFSVisitedNodes.length) {
                 setTimeout(() => {
+                    const node = DFSVisitedNodes[i - 1];
+                    if (node.isEnd) {
+                        document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-dot";
+                    }
+                }, 15 * i);
+                setTimeout(() => {
                     visualizeShortestPath(DFSPath);
-                }, 16 * i);
+                }, 17 * i);
             } else {
                 setTimeout(() => {
                     const node = DFSVisitedNodes[i];
-                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                    if (!node.isEnd) {
+                        document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                    }
                 }, 15 * i)
             }
         }
