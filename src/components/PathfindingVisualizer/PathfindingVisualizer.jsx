@@ -249,12 +249,25 @@ const PathfindingVisualizer = () => {
 
 
     const visualizeShortestPath = (shortestPathNodes) => {
-        for (let i = 0; i < shortestPathNodes.length; i++) {
+        for (let i = 0; i < shortestPathNodes.length - 1; i++) {
             setTimeout(() => {
                 const node = shortestPathNodes[i];
-                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path";
+                const next_node = shortestPathNodes[i + 1];
+                if (next_node.y > node.y) {
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path-r";
+                } else if (next_node.y < node.y) {
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path-l";
+                } else if (next_node.x > node.x) {
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path-d";
+                } else {
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path-u";
+                }
             }, 50 * i)
         }
+        let node = shortestPathNodes[shortestPathNodes.length - 1];
+        setTimeout(() => {
+            document.getElementById(`node-${node.x}-${node.y}`).className = "node node-shortest-path-end";
+        }, shortestPathNodes.length * 50);
     }
 
 

@@ -80,8 +80,8 @@
     }
 }*/
 
-.node-shortest-path {
-    animation-name: shortestPath;
+.node-shortest-path-l {
+    animation-name: shortestPathL;
     animation-duration: 0.8s;
     animation-timing-function: ease-out;
     animation-delay: 0;
@@ -91,20 +91,173 @@
     animation-play-state: running;
 }
 
-@keyframes shortestPath {
+.node-shortest-path-r {
+    animation-name: shortestPathR;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node-shortest-path-u {
+    animation-name: shortestPathU;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node-shortest-path-d {
+    animation-name: shortestPathD;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node-shortest-path-d {
+    animation-name: shortestPathD;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node-shortest-path-end {
+    animation-name: shortestPathEnd;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes shortestPathL {
     0% {
         transform: scale(0.6);
-        background-color: var(--celeste);
+        background: url("/src/images/icons/left-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     70% {
         transform: scale(1.2);
-        background-color: var(--celeste);
+        background: url("/src/images/icons/left-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     100% {
         transform: scale(1);
-        background-color: var(--celeste);
+        background: url("/src/images/icons/left-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@keyframes shortestPathR {
+    0% {
+        transform: scale(0.6);
+        background: url("/src/images/icons/right-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    70% {
+        transform: scale(1.2);
+        background: url("/src/images/icons/right-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    100% {
+        transform: scale(1);
+        background: url("/src/images/icons/right-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@keyframes shortestPathU {
+    0% {
+        transform: scale(0.6);
+        background: url("/src/images/icons/up-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    70% {
+        transform: scale(1.2);
+        background: url("/src/images/icons/up-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    100% {
+        transform: scale(1);
+        background: url("/src/images/icons/up-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@keyframes shortestPathD {
+    0% {
+        transform: scale(0.6);
+        background: url("/src/images/icons/down-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    70% {
+        transform: scale(1.2);
+        background: url("/src/images/icons/down-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    100% {
+        transform: scale(1);
+        background: url("/src/images/icons/down-arrow.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@keyframes shortestPathEnd {
+    0% {
+        transform: scale(0.6);
+        background: url("/src/images/icons/flag.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    70% {
+        transform: scale(1.2);
+        background: url("/src/images/icons/flag.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    100% {
+        transform: scale(1);
+        background: url("/src/images/icons/flag.png"), var(--celeste);
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
@@ -146,5 +299,28 @@
 
     .node-end {
         transform: rotate(90deg);
+    }
+
+    @keyframes shortestPathEnd {
+        0% {
+            transform: scale(0.6);
+            background: url("/src/images/icons/flag-rotated.png"), var(--celeste);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        70% {
+            transform: scale(1.2);
+            background: url("/src/images/icons/flag-rotated.png"), var(--celeste);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        100% {
+            transform: scale(1);
+            background: url("/src/images/icons/flag-rotated.png"), var(--celeste);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
     }
 }
