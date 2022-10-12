@@ -9,7 +9,7 @@ header {
     height: 50px;
     justify-content: space-between;
     align-items: center;
-    background: var(--gris);
+    background: rgba(255, 255, 255, 0.985);
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -67,12 +67,12 @@ header {
 }
 
 .nav-items>li>a:hover {
-    color: var(--celeste);
-    fill: var(--celeste);
+    color: #009ECE;
+    fill: #009ECE;
 }
 
 .openModalBtn {
-    background-color: var(--gris);
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     text-align: center;
     text-decoration: none;
@@ -85,8 +85,8 @@ header {
 
 .openModalBtn:hover {
     cursor: pointer;
-    color: var(--celeste);
-    fill: var(--celeste);
+    color: #009ECE;
+    fill: #009ECE;
 }
 
 @keyframes blink {
@@ -145,6 +145,31 @@ header {
     }
 }
 
+@media only screen and (max-width: 492px) {
+    .navbar {
+        width: 100%;
+    }
+
+
+    .nav-items {
+        display: none;
+    }
+
+    .nav-items-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        position: relative;
+        align-items: center;
+        top: -10px;
+        left: 35px;
+        list-style: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 0 !important;
+    }
+}
+
 @media only screen and (max-width: 415px) {
     .navbar {
         display: inline-block;
@@ -162,10 +187,11 @@ header {
         position: relative;
         align-items: center;
         top: -15px;
+        left: 0;
         list-style: none;
         margin-left: auto;
         margin-right: auto;
-        width: 414px;
+        width: 100%;
         padding: 0 !important;
     }
 
