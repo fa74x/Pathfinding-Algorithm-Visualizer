@@ -48,13 +48,13 @@ export default function Tutorial({ changeModalState }) {
                     document.getElementById('tutorial-gif').id = 'tutorial-img'
                 } catch { }
                 setTitle("What is a path-finding algorithm?");
-                setText("In essence, a path-finding algorithm searches for a path between two points. This application visualizes several algorithms in action.")
+                setText("In essence, a path-finding algorithm searches for a path between two points. They are generally used for navigation, routing, and other applications where finding the shortest path is important. This application visualizes several algorithms in action.")
                 setImg(Distance)
                 setBtntxt("Next")
                 break
             case 3:
                 setTitle("Breadth First Search (BFS)");
-                setText("BFS is an algorithm used to find the shortest path from a given source vertex to all other vertices in the graph. It starts with the source vertex and visits all the vertices connected to it, before moving on to the next vertex in the queue.  It finds the shortest path between two given nodes.")
+                setText("BFS is an algorithm used to find the shortest path from a given source vertex to all other vertices in the graph. It starts with the source vertex and visits all the vertices connected to it, before moving on to the next vertex in the queue. It can also be used to determine whether a graph is connected or not.")
                 setImg(DFSgif)
                 setBtntxt("Finish")
                 try {

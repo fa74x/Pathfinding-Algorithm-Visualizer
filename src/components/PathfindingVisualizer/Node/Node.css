@@ -31,11 +31,12 @@
     animation-play-state: running;
 }
 
+
 @keyframes visitedAnimation {
     0% {
         transform: scale(0.5);
         background-color: #7D387D;
-        border-radius: 10%;
+        border-radius: 20%;
     }
 
     50% {
@@ -50,6 +51,48 @@
     100% {
         transform: scale(1);
         background-color: #fdbd57;
+    }
+}
+
+.node-visited-start {
+    animation-name: visitedAnimationStart;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes visitedAnimationStart {
+    0% {
+        transform: scale(0.5);
+        background-color: #7D387D;
+        border-radius: 20%;
+        background: url("/src/images/icons/start-visited.png"), #7D387D;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    50% {
+        background: url("/src/images/icons/start-visited.png"), #fdbd57;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    75% {
+        transform: scale(1.1);
+        background: url("/src/images/icons/start-visited.png"), #fdbd57;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    100% {
+        transform: scale(1);
+        background: url("/src/images/icons/start-visited.png"), #fdbd57;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 

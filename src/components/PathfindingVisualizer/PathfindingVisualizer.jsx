@@ -1,3 +1,9 @@
+/* I have created a pathfinding algorithm visualizer application that allows you to see how different pathfinding algorithms work. 
+Pathfinding is a process of finding a path from one point to another. 
+You can select the start and end points, as well as the type of pathfinding algorithm you want to use. 
+The application will then show you the steps the algorithm takes to find the path. 
+This is a great way to learn about how these algorithms work, and to see the differences between them. */
+
 import React, { useState, useEffect } from "react"
 import Astar from "../algorithms/astar.jsx"
 import DFS from "../algorithms/dfs.jsx"
@@ -292,7 +298,10 @@ const PathfindingVisualizer = () => {
         cleanGrid();
 
         for (let i = 0; i <= BFSVisitedNodes.length; i++) {
-            if (i === BFSVisitedNodes.length) {
+            if (i == 0) {
+                const node = BFSVisitedNodes[0];
+                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-start";
+            } else if (i === BFSVisitedNodes.length) {
                 setTimeout(() => {
                     visualizeShortestPath(BFSPath);
                 }, 16 * i);
@@ -309,7 +318,10 @@ const PathfindingVisualizer = () => {
         cleanGrid();
 
         for (let i = 0; i <= DFSVisitedNodes.length; i++) {
-            if (i === DFSVisitedNodes.length) {
+            if (i == 0) {
+                const node = DFSVisitedNodes[0];
+                document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited-start";
+            } else if (i === DFSVisitedNodes.length) {
                 setTimeout(() => {
                     visualizeShortestPath(DFSPath);
                 }, 16 * i);
