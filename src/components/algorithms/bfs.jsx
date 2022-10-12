@@ -1,4 +1,4 @@
-function DFS(startNode, finishNode) {
+function BFS(startNode, finishNode) {
     let openSet = [];
     let closedSet = [];
     let path = [];
@@ -43,7 +43,6 @@ function DFS(startNode, finishNode) {
                 }
             }
         }
-        openSet.reverse();
     }
 
 
@@ -55,4 +54,4 @@ function heruistic(a, b) {
     return d;
 }
 
-export default DFS;
+export default BFS;

@@ -4,8 +4,8 @@
 }
 
 .node {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     border: 1px solid black;
 }
 
@@ -120,11 +120,24 @@
     background-color: rgb(12, 53, 71);
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 1920px) {
+    .node {
+        width: 33px;
+        height: 33px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .node {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
     .node {
         width: 17px;
         height: 17px;
-        border: 1px solid black;
     }
 
     .node-start {

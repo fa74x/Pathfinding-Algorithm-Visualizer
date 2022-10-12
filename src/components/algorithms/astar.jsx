@@ -1,4 +1,4 @@
-function Astar(startNode, finishNode) {
+function DFS(startNode, finishNode) {
     let openSet = [];
     let closedSet = [];
     let path = [];
@@ -7,11 +7,6 @@ function Astar(startNode, finishNode) {
     openSet.push(startNode);
     while (openSet.length > 0) {
         let leastIndex = 0;
-        for (let i = 0; i < openSet.length; i++) {
-            if (openSet[i].f < openSet[leastIndex].f) {
-                leastIndex = i;
-            }
-        }
 
         let current = openSet[leastIndex];
         visitedNodes.push(current);
@@ -35,22 +30,15 @@ function Astar(startNode, finishNode) {
         for (let i = 0; i < neighbours.length; i++) {
             let neighbour = neighbours[i];
             if (!closedSet.includes(neighbour) && !neighbour.isWall) {
-                let tempG = current.g + 1;
                 let newPath = false;
                 if (openSet.includes(neighbour)) {
-                    if (tempG < neighbour.g) {
-                        neighbour.g = tempG;
-                        newPath = true;
-                    }
+                    newPath = true;
                 } else {
-                    neighbour.g = tempG;
                     newPath = true;
                     openSet.push(neighbour);
                 }
 
                 if (newPath) {
-                    neighbour.h = heruistic(neighbour, finishNode);
-                    neighbour.f = neighbour.g + neighbour.f;
                     neighbour.previous = current;
                 }
             }
@@ -66,4 +54,4 @@ function heruistic(a, b) {
     return d;
 }
 
-export default Astar;
+export default DFS;

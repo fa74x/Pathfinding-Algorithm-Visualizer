@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
 .backdrop {
   background-color: rgba(0, 0, 0, 0.501);
   position: absolute;
@@ -21,14 +23,13 @@
   z-index: 2;
 }
 
-.welcome-box {
+.tutorial-box {
   width: clamp(20%, 600px, 50%);
   height: 550px;
   opacity: 1;
   position: relative;
   top: -3%;
   background-color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
@@ -41,8 +42,6 @@
   text-align: center;
   border: 3px;
   border-radius: 30px;
-  border-style: solid;
-  border-color: black;
   overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -51,12 +50,12 @@
   z-index: 2;
 }
 
-.welcome-box>div {
+.tutorial-box>div {
   height: 700px;
   overflow: hidden;
 }
 
-.welcome-box>div>h3 {
+.tutorial-box>div>h3 {
   font-size: 40px;
   padding-top: 0;
   padding-bottom: 10px;
@@ -64,16 +63,16 @@
   line-height: 100%;
 }
 
-.welcome-box>div>p {
+.tutorial-box>div>p {
   font-size: 24px;
   margin: 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   line-height: 125%;
 }
 
-.welcome-box>div>img {
-  width: 30%;
+#tutorial-img {
+  width: 220px;
   padding-top: 30px;
   padding-bottom: 30px;
   -webkit-user-drag: none;
@@ -100,30 +99,59 @@
   cursor: default;
 }
 
-.tutorialBtn {
-  display: inline-flex;
-  align-items: center;
-  padding: 20px;
-  width: fit-content;
-  height: 35px;
+.tutorial-button {
   font-size: 20px;
+  font-weight: 500;
   position: relative;
-  background-color: white;
   border: none;
-  color: black;
-  border: solid 1px black;
-  border-radius: 45px;
-  transition: 200ms;
+  transition: 300ms;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 26px;
+  gap: 10px;
+
+  color: white;
+  background: #2f2f2f;
+  border-radius: 116px;
 }
 
-.tutorialBtn:hover {
+.tutorial-button:hover {
   background-color: var(--celeste);
   color: white;
   cursor: pointer;
 }
 
+.tutorial-button-close {
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  border: none;
+  transition: 300ms;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 26px;
+  gap: 10px;
+
+  background-color: white;
+  color: black;
+  border-radius: 116px;
+}
+
+.tutorial-button-close:hover {
+  color: #28A1B8;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 415px) {
-  .welcome-box {
+  .tutorial-box {
     position: relative;
     top: 70px;
     width: 90%;
@@ -132,25 +160,29 @@
     padding-bottom: 0;
   }
 
-  .welcome-box>div {
+  .tutorial-box>div {
     height: 100%;
     width: 100%;
   }
 
-  .welcome-box>div>h3 {
+  .tutorial-box>div>h3 {
     font-size: 28px;
   }
 
-  .welcome-box>div>p {
+  .tutorial-box>div>p {
     padding-top: 10px;
     padding-bottom: 25px;
     font-size: 20px;
   }
 
-  .welcome-box>div>img {
+  #tutorial-img {
     padding-top: 0;
     padding-bottom: 0;
     width: 180px;
+  }
+
+  #tutorial-gif {
+    height: 190px;
   }
 
   .buttonBar {
@@ -161,9 +193,12 @@
     bottom: 5px;
   }
 
-  .tutorialBtn {
-    font-size: 15px;
-    height: 28px !important;
-    padding: 13px;
+  .tutorial-button {
+    bottom: -5px;
+    width: fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 19px;
+    height: 32px !important;
   }
 }

@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 10vh;
+    top: 80px;
     margin: 0;
     height: fit-content;
     width: 100%;
@@ -17,11 +17,11 @@
     justify-content: center;
     margin: 0 0 0 0;
     padding-left: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .guide>h3 {
-    font-size: 22px;
+    font-size: 26px;
     padding-right: 5px;
     font-weight: 500;
 }
@@ -46,9 +46,9 @@
     align-items: center;
     width: fit-content;
     margin: 20px auto auto;
-    height: 40px;
-    width: fit-content + 5px;
-    font-size: 125%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 27px;
     position: relative;
     background-color: white;
     border: none;
@@ -74,7 +74,40 @@
     display: flex;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 1920px) {
+    .wrapper {
+        top: 45px;
+    }
+
+    .guide {
+        position: relative;
+        top: 5px;
+    }
+
+    .grid {
+        position: relative;
+        top: -10px;
+    }
+
+    .btn-bar {
+        position: relative;
+        top: -10px;
+    }
+
+    .btn-visualize {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .btn-visualize {
+        font-size: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
     .wrapper {
         position: relative;
         top: 0;
@@ -85,6 +118,7 @@
         position: relative;
         top: 5px;
         padding: 0;
+        margin-bottom: 0;
     }
 
     .guide>h3 {
@@ -101,15 +135,16 @@
 
     .btn-bar {
         position: relative;
-        top: 215px;
+        top: 205px;
         padding-bottom: 35px;
     }
 
     .btn-visualize {
-        height: 28px;
-        margin: 0;
+        height: 30px;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
         padding: 0;
-        font-size: 15px !important;
+        font-size: 12px !important;
     }
 
 }

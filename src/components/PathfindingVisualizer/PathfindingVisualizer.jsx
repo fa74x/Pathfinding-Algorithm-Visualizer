@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Astar from "../algorithms/astar.jsx"
+import DFS from "../algorithms/dfs.jsx"
+import BFS from "../algorithms/bfs.jsx"
 import Node from "../PathfindingVisualizer/Node/Node";
 import "./PathfindingVisualizer.css"
 const cols = 29;
@@ -14,9 +16,12 @@ const grid = new Array(rows);
 
 const PathfindingVisualizer = () => {
     const [Grid, setGrid] = useState([]);
-    const [Path, setPath] = useState([]);
-    const [VisitedNodes, setVisitedNodes] = useState([]);
-    const [mousePressed, setMousePressed] = useState(false);
+    const [AstarPath, setAstarPath] = useState([]);
+    const [AstarVisitedNodes, setAstarVisitedNodes] = useState([]);
+    const [BFSPath, setBFSPath] = useState([]);
+    const [BFSVisitedNodes, setBFSVisitedNodes] = useState([]);
+    const [DFSPath, setDFSPath] = useState([]);
+    const [DFSVisitedNodes, setDFSVisitedNodes] = useState([]);
 
     useEffect(() => {
         initializeGrid();
@@ -41,10 +46,21 @@ const PathfindingVisualizer = () => {
 
         const startNode = grid[NODE_START_ROW][NODE_START_COL];
         const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
-        let path = Astar(startNode, finishNode);
-        path.path = path.path.reverse();
-        setPath(path.path);
-        setVisitedNodes(path.visitedNodes);
+
+        let astarpath = Astar(startNode, finishNode);
+        astarpath.path = astarpath.path.reverse();
+        setAstarPath(astarpath.path);
+        setAstarVisitedNodes(astarpath.visitedNodes);
+
+        let bfspath = BFS(startNode, finishNode);
+        bfspath.path = bfspath.path.reverse();
+        setBFSPath(bfspath.path);
+        setBFSVisitedNodes(bfspath.visitedNodes);
+
+        let dfspath = DFS(startNode, finishNode);
+        dfspath.path = dfspath.path.reverse();
+        setDFSPath(dfspath.path);
+        setDFSVisitedNodes(dfspath.visitedNodes);
     };
 
     //CLEARS GRID
@@ -73,10 +89,20 @@ const PathfindingVisualizer = () => {
 
         addNeighbours(grid);
 
-        let path = Astar(startNode, finishNode);
-        path.path = path.path.reverse();
-        setPath(path.path);
-        setVisitedNodes(path.visitedNodes);
+        let astarpath = Astar(startNode, finishNode);
+        astarpath.path = astarpath.path.reverse();
+        setAstarPath(astarpath.path);
+        setAstarVisitedNodes(astarpath.visitedNodes);
+
+        let bfspath = BFS(startNode, finishNode);
+        bfspath.path = bfspath.path.reverse();
+        setBFSPath(bfspath.path);
+        setBFSVisitedNodes(bfspath.visitedNodes);
+
+        let dfspath = DFS(startNode, finishNode);
+        dfspath.path = dfspath.path.reverse();
+        setDFSPath(dfspath.path);
+        setDFSVisitedNodes(dfspath.visitedNodes);
     }
 
     //CLEAN GRID
@@ -112,10 +138,21 @@ const PathfindingVisualizer = () => {
 
             const startNode = grid[NODE_START_ROW][NODE_START_COL];
             const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
-            let path = Astar(startNode, finishNode);
-            path.path = path.path.reverse();
-            setPath(path.path);
-            setVisitedNodes(path.visitedNodes);
+
+            let astarpath = Astar(startNode, finishNode);
+            astarpath.path = astarpath.path.reverse();
+            setAstarPath(astarpath.path);
+            setAstarVisitedNodes(astarpath.visitedNodes);
+
+            let bfspath = BFS(startNode, finishNode);
+            bfspath.path = bfspath.path.reverse();
+            setBFSPath(bfspath.path);
+            setBFSVisitedNodes(bfspath.visitedNodes);
+
+            let dfspath = DFS(startNode, finishNode);
+            dfspath.path = dfspath.path.reverse();
+            setDFSPath(dfspath.path);
+            setDFSVisitedNodes(dfspath.visitedNodes);
         }
     }
 
@@ -207,10 +244,7 @@ const PathfindingVisualizer = () => {
 
         const startNode = grid[NODE_START_ROW][NODE_START_COL];
         const finishNode = grid[NODE_FINISH_ROW][NODE_FINISH_COL];
-        let path = Astar(startNode, finishNode);
-        path.path = path.path.reverse();
-        setPath(path.path);
-        setVisitedNodes(path.visitedNodes);
+
     }
 
 
@@ -224,23 +258,56 @@ const PathfindingVisualizer = () => {
     }
 
 
-    const visualizePath = () => {
+    const visualizeAstarPath = () => {
         cleanGrid();
 
-        for (let i = 0; i <= VisitedNodes.length; i++) {
-            if (i === VisitedNodes.length) {
+        for (let i = 0; i <= AstarVisitedNodes.length; i++) {
+            if (i === AstarVisitedNodes.length) {
                 setTimeout(() => {
-                    visualizeShortestPath(Path);
+                    visualizeShortestPath(AstarPath);
                 }, 16 * i);
             } else {
                 setTimeout(() => {
-                    const node = VisitedNodes[i];
+                    const node = AstarVisitedNodes[i];
                     document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
                 }, 15 * i)
             }
         }
     };
 
+    const visualizeBFSPath = () => {
+        cleanGrid();
+
+        for (let i = 0; i <= BFSVisitedNodes.length; i++) {
+            if (i === BFSVisitedNodes.length) {
+                setTimeout(() => {
+                    visualizeShortestPath(BFSPath);
+                }, 16 * i);
+            } else {
+                setTimeout(() => {
+                    const node = BFSVisitedNodes[i];
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                }, 15 * i)
+            }
+        }
+    };
+
+    const visualizeDFSPath = () => {
+        cleanGrid();
+
+        for (let i = 0; i <= DFSVisitedNodes.length; i++) {
+            if (i === DFSVisitedNodes.length) {
+                setTimeout(() => {
+                    visualizeShortestPath(DFSPath);
+                }, 16 * i);
+            } else {
+                setTimeout(() => {
+                    const node = DFSVisitedNodes[i];
+                    document.getElementById(`node-${node.x}-${node.y}`).className = "node node-visited";
+                }, 15 * i)
+            }
+        }
+    }
 
     return (
         <div className="wrapper">
@@ -253,7 +320,9 @@ const PathfindingVisualizer = () => {
             <div className="grid">{gridWithNode}</div>
             <div className="btn-bar">
                 <button className="btn-visualize orange" onClick={initializeGrid}>⠀Randomize⠀</button>
-                <button className="btn-visualize skyblue" onClick={visualizePath}>⠀Visualize Path⠀</button>
+                {/* <button className="btn-visualize skyblue" onClick={visualizeAstarPath}>⠀Visualize A*⠀</button> */}
+                <button className="btn-visualize skyblue" onClick={visualizeBFSPath}>⠀Visualize BFS⠀</button>
+                <button className="btn-visualize skyblue" onClick={visualizeDFSPath}>⠀Visualize DFS⠀</button>
                 <button className="btn-visualize orange" onClick={clearGrid}>⠀Clear Grid⠀</button>
             </div>
         </div >
