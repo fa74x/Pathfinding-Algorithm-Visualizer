@@ -19,7 +19,7 @@ if the removed node has not been visited:
 mark it as visited.
 add all of its unvisited neighbors to the queue.
 
-The time complexity of BFS is O(|V|+|E|), where |V| is the number of vertices and |E| is the number of edges.
+The time complexity of BFS is O(n + m), where n is the number of vertices and m is the number of edges.
 
 ### DFS
 Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. One starts at the root (selecting some node as the root in the graph case) and explores as far as possible along each branch before backtracking.
