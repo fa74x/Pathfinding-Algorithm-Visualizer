@@ -1,9 +1,3 @@
-/* I have created a pathfinding algorithm visualizer application that allows you to see how different pathfinding algorithms work. 
-Pathfinding is a process of finding a path from one point to another. 
-You can select the start and end points, as well as the type of pathfinding algorithm you want to use. 
-The application will then show you the steps the algorithm takes to find the path. 
-This is a great way to learn about how these algorithms work, and to see the differences between them. */
-
 import React, { useState, useEffect } from "react"
 import Astar from "../algorithms/astar.jsx"
 import DFS from "../algorithms/dfs.jsx"
@@ -13,10 +7,10 @@ import "./PathfindingVisualizer.css"
 const cols = 29;
 const rows = 19;
 
-const NODE_START_ROW = 2;
-const NODE_START_COL = 2;
-const NODE_FINISH_ROW = rows - 2;
-const NODE_FINISH_COL = cols - 2;
+var NODE_START_ROW = 2;
+var NODE_START_COL = 2;
+var NODE_FINISH_ROW = rows - 2;
+var NODE_FINISH_COL = cols - 2;
 
 const grid = new Array(rows);
 
@@ -362,11 +356,11 @@ const PathfindingVisualizer = () => {
             </div>
             <div className="grid">{gridWithNode}</div>
             <div className="btn-bar">
-                <button className="btn-visualize orange" onClick={initializeGrid}>⠀Randomize⠀</button>
+                <button className="btn-visualize orange" onClick={initializeGrid}>Randomize</button>
                 {/* <button className="btn-visualize skyblue" onClick={visualizeAstarPath}>⠀Visualize A*⠀</button> */}
-                <button className="btn-visualize skyblue" onClick={visualizeBFSPath}>⠀Visualize BFS⠀</button>
-                <button className="btn-visualize skyblue" onClick={visualizeDFSPath}>⠀Visualize DFS⠀</button>
-                <button className="btn-visualize orange" onClick={clearGrid}>⠀Clear Grid⠀</button>
+                <button className="btn-visualize skyblue" onClick={visualizeBFSPath}>Visualize BFS</button>
+                <button className="btn-visualize skyblue" onClick={visualizeDFSPath}>Visualize DFS</button>
+                <button className="btn-visualize orange" onClick={clearGrid}>Clear Grid</button>
             </div>
         </div >
     );

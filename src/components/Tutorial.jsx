@@ -3,6 +3,7 @@ import Logo from "../images/icons/pathfinding-thick.png"
 import Distance from "../images/icons/distance.png"
 import BFSgif from "../images/gifs/bfs.gif"
 import DFSgif from "../images/gifs/dfs.gif"
+import wallgif from "../images/gifs/wall.gif"
 import "./Tutorial.css"
 
 
@@ -38,7 +39,7 @@ export default function Tutorial({ changeModalState }) {
                 setBtntxt(next)
                 try {
                     document.getElementById('temp').id = 'hide'
-                    document.getElementById('tutorial-gif').id = 'tutorial-img'
+                    document.getElementById('tutorial-img-2').id = 'tutorial-img-1'
                 } catch { }
                 break
             case 2:
@@ -46,7 +47,10 @@ export default function Tutorial({ changeModalState }) {
                     document.getElementById('hide').id = 'temp'
                 } catch { }
                 try {
-                    document.getElementById('tutorial-gif').id = 'tutorial-img'
+                    document.getElementById('tutorial-img-1').id = 'tutorial-img-2'
+                } catch { }
+                try {
+                    document.getElementById('tutorial-gif').id = 'tutorial-img-2'
                 } catch { }
                 setTitle("What is a path-finding algorithm?");
                 setText("In essence, a path-finding algorithm searches for a path between two points. They are generally used for navigation, routing, and other applications where finding the shortest path is important. This application visualizes several algorithms in action.")
@@ -59,16 +63,22 @@ export default function Tutorial({ changeModalState }) {
                 setImg(BFSgif)
                 setBtntxt("Next")
                 try {
-                    document.getElementById('tutorial-img').id = 'tutorial-gif'
+                    document.getElementById('tutorial-img-2').id = 'tutorial-gif'
                 } catch { }
                 break
             case 4:
                 setTitle("Depth First Search (DFS)");
                 setText("DFS is another pathfinding algorithm. It starts at the source node of a graph and explores as far as possible along each branch before backtracking. It uses a stack data structure to keep track of the nodes it has visited, and returns a path from the root node to the goal node.")
                 setImg(DFSgif)
-                setBtntxt("Finish")
+                setBtntxt("Next")
                 break
             case 5:
+                setTitle("Adding Walls");
+                setText("You can click or click and drag to create walls.")
+                setImg(wallgif)
+                setBtntxt("Finish")
+                break
+            case 6:
                 changeModalState(false)
                 break
         }
@@ -79,8 +89,8 @@ export default function Tutorial({ changeModalState }) {
             <div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <img id="tutorial-img" src={img} />
-                <div className="buttonBar">
+                <img id="tutorial-img-1" src={img} />
+                <div className="button-bar">
                     <button className="tutorial-button-close" onClick={() => changeModalState(false)} >Close</button>
                     <button className="tutorial-button" onClick={() => Previous(count, changeModalState)} id="hide">Previous</button>
                     <button className="tutorial-button" onClick={() => Next(count, changeModalState)}>{btntxt}</button>

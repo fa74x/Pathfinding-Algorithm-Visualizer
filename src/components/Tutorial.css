@@ -71,8 +71,8 @@
   line-height: 125%;
 }
 
-#tutorial-img {
-  width: 220px;
+#tutorial-img-1 {
+  width: 45%;
   padding-top: 30px;
   padding-bottom: 30px;
   -webkit-user-drag: none;
@@ -82,11 +82,22 @@
   -ms-user-select: none;
 }
 
-#tutorial-gif {
-  height: 220px;
+#tutorial-img-2 {
+  width: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
-.buttonBar {
+#tutorial-gif {
+  height: 33%;
+}
+
+.button-bar {
   position: absolute;
   bottom: 20px;
   left: 45px;
@@ -154,15 +165,98 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 1100px) {
+  .tutorial-box {
+    top: 50px;
+    width: 75%;
+  }
+
+  #tutorial-img-1 {
+    width: 40%;
+    padding-top: 0;
+  }
+
+  #tutorial-img-2 {
+    width: 30%;
+    padding-top: 0;
+  }
+
+  #tutorial-gif {
+    height: 28%;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .tutorial-box>div>p {}
+
+  .button-bar {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  #tutorial-gif {
+    height: 20%;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tutorial-box {
+    width: 85%;
+  }
+
+  .tutorial-box>div>p {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   .tutorial-box {
     position: relative;
-    top: 70px;
+    top: 40px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 0;
   }
+
+  .tutorial-box>div>h3 {
+    font-size: 32px;
+  }
+
+  .tutorial-box>div>p {
+    font-size: 20px;
+  }
+
+  #tutorial-img-1 {
+    padding-top: 20px;
+    width: 180px;
+  }
+
+  #tutorial-img-2 {
+    padding-top: 35px;
+  }
+
+  #tutorial-gif {
+    width: 260px;
+    height: auto;
+  }
+
+  .button-bar {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .button-bar>button {
+    font-size: 18px;
+    padding: 8px 18px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
 
   .tutorial-box>div {
     height: 100%;
@@ -182,19 +276,14 @@
   #tutorial-img {
     padding-top: 0;
     padding-bottom: 0;
-    width: 180px;
   }
 
-  #tutorial-gif {
-    height: 160px;
-  }
-
-  .buttonBar {
+  .button-bar {
     position: absolute;
     padding: 0;
     left: 10px;
     right: 10px;
-    bottom: 5px;
+    bottom: 10px;
   }
 
   .tutorial-button {
@@ -204,5 +293,20 @@
     padding-right: 15px;
     font-size: 19px;
     height: 32px !important;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .tutorial-box>div>p {
+    font-size: 15px;
+  }
+
+  #tutorial-img-2 {
+    width: 130px;
+  }
+
+  .button-bar>button {
+    font-size: 13px;
+    padding: 4px 12px;
   }
 }
